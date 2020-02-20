@@ -17,7 +17,7 @@ successMessage = """
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>  
-  <body style="background-color:{}">
+  <body style="background-color:{};text-align:center">
     <h1>Success</h1>
     <p>The background is your color</p>
     <a href="/index.html">Try again</a>

@@ -2,3 +2,7 @@ Red
 Blue
 Green
 Yellow
+Olive
+Lime
+Black
+Fuchsia
