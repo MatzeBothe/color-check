@@ -5,7 +5,8 @@ form = cgi.FieldStorage()
 entered_color = form.getvalue('color')
 
 path = "/Users/matthias.bothe/code/foundations/color-check/cgi-bin/colors.txt"
-data = open(path, "r")    
+data = open(path, "r")
+content = data.read() 
 
 successMessage = """
 <!DOCTYPE html>
@@ -15,10 +16,6 @@ successMessage = """
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
   </head>  
   <body style="background-color:{}">
     <h1>Success</h1>
@@ -35,21 +32,19 @@ errorMessage = """
     <title>Error!</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
   </head>  
   <body>
     <h1>Failed!</h1>
-    <p>{entered_color} is not a valid color.</p>
+    <p>{} is not a valid color.</p>
     <a href="/index.html">Try again</a>
   </body>
 </html>
-""".format(entered_color=entered_color)
+""".format(entered_color)
 
-if entered_color in data:
+if entered_color in content:
   print (successMessage)
 else:
   print (errorMessage)
+
+data.close()
